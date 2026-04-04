@@ -20,10 +20,10 @@ export function generateNumericDistractors(
   candidates.delete(correct);
 
   // If we need more, add random values
-  while (candidates.size < count + 2) {
+  const maxPossible = max - min + 1 - 1; // total range minus the correct answer
+  while (candidates.size < count + 2 && candidates.size < maxPossible) {
     const val = min + Math.floor(Math.random() * (max - min + 1));
     if (val !== correct) candidates.add(val);
-    if (candidates.size > 10) break;
   }
 
   return shuffle([...candidates]).slice(0, count);
