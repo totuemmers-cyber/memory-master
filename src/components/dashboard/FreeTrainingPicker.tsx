@@ -4,6 +4,7 @@ import { challengeRegistry } from '../../engine/challenge-registry';
 import { useGameStore } from '../../state/game-store';
 import { PixelCard } from '../ui/PixelCard';
 import { PixelButton } from '../ui/PixelButton';
+import { ChallengeInfoButton } from '../ui/ChallengeInfoPopup';
 
 export function FreeTrainingPicker() {
   const navigate = useNavigate();
@@ -37,9 +38,12 @@ export function FreeTrainingPicker() {
                   {ch.available ? ch.description : 'Coming Soon'}
                 </div>
               </div>
-              {!ch.available && (
-                <span className="text-pixel-xs text-pixel-muted">🔒</span>
-              )}
+              <div className="flex items-center gap-2">
+                <ChallengeInfoButton challengeId={ch.id} />
+                {!ch.available && (
+                  <span className="text-pixel-xs text-pixel-muted">🔒</span>
+                )}
+              </div>
             </div>
           </PixelCard>
         ))}

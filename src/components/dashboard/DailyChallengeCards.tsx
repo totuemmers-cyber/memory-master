@@ -5,6 +5,7 @@ import { pickDailyChallenges } from '../../engine/daily-challenge-picker';
 import { challengeRegistry } from '../../engine/challenge-registry';
 import { PixelCard } from '../ui/PixelCard';
 import { PixelProgress } from '../ui/PixelProgress';
+import { ChallengeInfoButton } from '../ui/ChallengeInfoPopup';
 
 const SLOT_LABELS = ['Schwaeche', 'Balance', 'Herausforderung'];
 const SLOT_COLORS = ['text-pixel-red', 'text-pixel-blue', 'text-pixel-gold'];
@@ -64,7 +65,8 @@ export function DailyChallengeCards() {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="flex items-center gap-2">
+                  <ChallengeInfoButton challengeId={dc.challengeId} />
                   {isCompleted && result ? (
                     <span className={`text-pixel-sm font-pixel ${result.score >= 85 ? 'text-pixel-emerald' : result.score >= 50 ? 'text-pixel-gold' : 'text-pixel-red'}`}>
                       {result.score}%
