@@ -7,13 +7,13 @@ function PlaceholderComponent({ onQuit }: ChallengeProps) {
     <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6 p-6">
       <div className="text-pixel-gold font-pixel text-pixel-xl">Coming Soon</div>
       <div className="text-pixel-muted font-pixel text-pixel-xs text-center max-w-sm">
-        Diese Challenge wird in einem zukuenftigen Update freigeschaltet.
+        This challenge will be unlocked in a future update.
       </div>
       <button
         onClick={onQuit}
         className="px-6 py-3 bg-pixel-surface text-white font-pixel text-pixel-sm pixel-border-muted hover:brightness-110"
       >
-        Zurueck
+        Back
       </button>
     </div>
   );

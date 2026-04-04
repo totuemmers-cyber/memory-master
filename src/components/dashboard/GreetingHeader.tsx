@@ -32,9 +32,9 @@ export function GreetingHeader() {
 
   const getGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return 'Guten Morgen';
-    if (hour < 18) return 'Guten Tag';
-    return 'Guten Abend';
+    if (hour < 12) return 'Good Morning';
+    if (hour < 18) return 'Good Afternoon';
+    return 'Good Evening';
   };
 
   return (
@@ -44,7 +44,7 @@ export function GreetingHeader() {
       <div className="text-pixel-gold text-pixel-sm mb-2">{title.name}</div>
       {streak > 0 && (
         <div className="text-pixel-sm text-pixel-emerald">
-          🔥 {streak} Tage Serie
+          🔥 {streak} Day Streak
         </div>
       )}
     </div>

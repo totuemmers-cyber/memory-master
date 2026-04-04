@@ -28,23 +28,23 @@ export function SettingsPage() {
       const result = importGameState(json);
       if (result.success && result.state) {
         importState(result.state);
-        alert('Daten erfolgreich importiert!');
+        alert('Data imported successfully!');
       } else {
-        alert('Fehler beim Import: ' + (result.error || 'Unbekannt'));
+        alert('Import error: ' + (result.error || 'Unknown'));
       }
     };
     reader.readAsText(file);
   };
 
   const handleReset = () => {
-    if (confirm('Alle Daten loeschen? Dies kann nicht rueckgaengig gemacht werden!')) {
+    if (confirm('Delete all data? This cannot be undone!')) {
       resetState();
     }
   };
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-pixel-gold text-pixel-xl text-center mb-6">Einstellungen</h1>
+      <h1 className="text-pixel-gold text-pixel-xl text-center mb-6">Settings</h1>
 
       <div className="space-y-4">
         {/* Sound */}
@@ -52,7 +52,7 @@ export function SettingsPage() {
           <div className="flex items-center justify-between">
             <div>
               <div className="text-white text-pixel-sm">Sound</div>
-              <div className="text-pixel-muted text-pixel-xs mt-1">8-Bit Sounds</div>
+              <div className="text-pixel-muted text-pixel-xs mt-1">8-bit sounds</div>
             </div>
             <button
               onClick={() => setSoundEnabled(!soundEnabled)}
@@ -71,8 +71,8 @@ export function SettingsPage() {
         <PixelCard>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-white text-pixel-sm">Daten exportieren</div>
-              <div className="text-pixel-muted text-pixel-xs mt-1">Als JSON-Datei speichern</div>
+              <div className="text-white text-pixel-sm">Export Data</div>
+              <div className="text-pixel-muted text-pixel-xs mt-1">Save as JSON file</div>
             </div>
             <PixelButton size="sm" variant="secondary" onClick={handleExport}>
               Export
@@ -84,8 +84,8 @@ export function SettingsPage() {
         <PixelCard>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-white text-pixel-sm">Daten importieren</div>
-              <div className="text-pixel-muted text-pixel-xs mt-1">JSON-Datei laden</div>
+              <div className="text-white text-pixel-sm">Import Data</div>
+              <div className="text-pixel-muted text-pixel-xs mt-1">Load JSON file</div>
             </div>
             <div>
               <input
@@ -106,8 +106,8 @@ export function SettingsPage() {
         <PixelCard>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-white text-pixel-sm">Daten zuruecksetzen</div>
-              <div className="text-pixel-muted text-pixel-xs mt-1">Alles loeschen</div>
+              <div className="text-white text-pixel-sm">Reset Data</div>
+              <div className="text-pixel-muted text-pixel-xs mt-1">Delete everything</div>
             </div>
             <PixelButton size="sm" variant="danger" onClick={handleReset}>
               Reset

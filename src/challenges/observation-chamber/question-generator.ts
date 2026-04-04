@@ -1,6 +1,6 @@
 import type { Scene, SceneObject, Question, QuestionType, ObjectColor, Shape, Size } from './types';
 import type { DifficultyLevel } from './difficulty-config';
-import { COLOR_LABELS_DE, SHAPE_LABELS_DE, SIZE_LABELS_DE, QUADRANT_LABELS_DE, SCENE_WIDTH, SCENE_HEIGHT } from './types';
+import { COLOR_LABELS, SHAPE_LABELS, SIZE_LABELS, QUADRANT_LABELS, SCENE_WIDTH, SCENE_HEIGHT } from './types';
 import { shuffle } from '../../utils/random';
 import { generateNumericDistractors, generateColorDistractors } from './distractor-generator';
 
@@ -76,7 +76,7 @@ function generateTotalCountQuestions(scene: Scene): QuestionCandidate[] {
     question: {
       id: nextId(),
       type: 'totalCount',
-      text: 'Wie viele Objekte waren zu sehen?',
+      text: 'How many objects were there?',
       correctAnswer: String(count),
       answerFormat: 'numberInput',
       min: 1,
@@ -104,7 +104,7 @@ function generateCountQuestions(scene: Scene): QuestionCandidate[] {
       question: {
         id: nextId(),
         type: 'count',
-        text: `Wie viele ${COLOR_LABELS_DE[color].toLowerCase()}e Objekte gab es?`,
+        text: `How many ${COLOR_LABELS[color].toLowerCase()} objects were there?`,
         correctAnswer: String(count),
         answerFormat: 'multipleChoice',
         options,
@@ -121,7 +121,7 @@ function generateCountQuestions(scene: Scene): QuestionCandidate[] {
       question: {
         id: nextId(),
         type: 'count',
-        text: `Wie viele ${SHAPE_LABELS_DE[shape]}e gab es?`,
+        text: `How many ${SHAPE_LABELS[shape].toLowerCase()}s were there?`,
         correctAnswer: String(count),
         answerFormat: 'multipleChoice',
         options,
@@ -145,10 +145,10 @@ function generateExistenceQuestions(scene: Scene, _config: DifficultyLevel): Que
       question: {
         id: nextId(),
         type: 'existence',
-        text: `Gab es ein ${COLOR_LABELS_DE[obj.color].toLowerCase()}es ${SHAPE_LABELS_DE[obj.shape]}?`,
-        correctAnswer: 'Ja',
+        text: `Was there a ${COLOR_LABELS[obj.color].toLowerCase()} ${SHAPE_LABELS[obj.shape].toLowerCase()}?`,
+        correctAnswer: 'Yes',
         answerFormat: 'yesNo',
-        options: ['Ja', 'Nein'],
+        options: ['Yes', 'No'],
       },
       interestingness: 4,
     });
@@ -162,10 +162,10 @@ function generateExistenceQuestions(scene: Scene, _config: DifficultyLevel): Que
           question: {
             id: nextId(),
             type: 'existence',
-            text: `Gab es ein ${COLOR_LABELS_DE[color].toLowerCase()}es ${SHAPE_LABELS_DE[shape]}?`,
-            correctAnswer: 'Nein',
+            text: `Was there a ${COLOR_LABELS[color].toLowerCase()} ${SHAPE_LABELS[shape].toLowerCase()}?`,
+            correctAnswer: 'No',
             answerFormat: 'yesNo',
-            options: ['Ja', 'Nein'],
+            options: ['Yes', 'No'],
           },
           interestingness: 6, // Trickier because both attributes were present
         });
@@ -193,13 +193,13 @@ function generateColorQuestions(scene: Scene): QuestionCandidate[] {
     if (objs.length !== 1) continue;
     const obj = objs[0];
     const distractors = generateColorDistractors(obj.color, sceneColors, 3);
-    const options = shuffle([COLOR_LABELS_DE[obj.color], ...distractors]);
+    const options = shuffle([COLOR_LABELS[obj.color], ...distractors]);
     candidates.push({
       question: {
         id: nextId(),
         type: 'color',
-        text: `Welche Farbe hatte das ${SIZE_LABELS_DE[obj.size].toLowerCase()}e ${SHAPE_LABELS_DE[obj.shape]}?`,
-        correctAnswer: COLOR_LABELS_DE[obj.color],
+        text: `What color was the ${SIZE_LABELS[obj.size].toLowerCase()} ${SHAPE_LABELS[obj.shape].toLowerCase()}?`,
+        correctAnswer: COLOR_LABELS[obj.color],
         answerFormat: 'multipleChoice',
         options,
       },
@@ -225,13 +225,13 @@ function generateSizeQuestions(scene: Scene): QuestionCandidate[] {
   for (const [, objs] of colorShapeCounts) {
     if (objs.length !== 1) continue;
     const obj = objs[0];
-    const options = ['Klein', 'Mittel', 'Gross'];
+    const options = ['Small', 'Medium', 'Large'];
     candidates.push({
       question: {
         id: nextId(),
         type: 'size',
-        text: `Welche Groesse hatte das ${COLOR_LABELS_DE[obj.color].toLowerCase()}e ${SHAPE_LABELS_DE[obj.shape]}?`,
-        correctAnswer: SIZE_LABELS_DE[obj.size],
+        text: `What size was the ${COLOR_LABELS[obj.color].toLowerCase()} ${SHAPE_LABELS[obj.shape].toLowerCase()}?`,
+        correctAnswer: SIZE_LABELS[obj.size],
         answerFormat: 'multipleChoice',
         options,
       },
@@ -262,13 +262,13 @@ function generatePositionQuestions(scene: Scene): QuestionCandidate[] {
     const obj = objs[0];
     if (Math.abs(obj.x - midX) < clearance || Math.abs(obj.y - midY) < clearance) continue;
 
-    const options = Object.values(QUADRANT_LABELS_DE);
+    const options = Object.values(QUADRANT_LABELS);
     candidates.push({
       question: {
         id: nextId(),
         type: 'position',
-        text: `Wo war das ${COLOR_LABELS_DE[obj.color].toLowerCase()}e ${SHAPE_LABELS_DE[obj.shape]}?`,
-        correctAnswer: QUADRANT_LABELS_DE[obj.quadrant],
+        text: `Where was the ${COLOR_LABELS[obj.color].toLowerCase()} ${SHAPE_LABELS[obj.shape].toLowerCase()}?`,
+        correctAnswer: QUADRANT_LABELS[obj.quadrant],
         answerFormat: 'quadrantSelect',
         options,
       },
@@ -306,22 +306,22 @@ function generateRelativePositionQuestions(scene: Scene): QuestionCandidate[] {
 
       let direction: string;
       if (dx > dy) {
-        direction = a.x < b.x ? 'links von' : 'rechts von';
+        direction = a.x < b.x ? 'to the left of' : 'to the right of';
       } else {
-        direction = a.y < b.y ? 'ueber' : 'unter';
+        direction = a.y < b.y ? 'above' : 'below';
       }
 
-      const nameA = `${COLOR_LABELS_DE[a.color].toLowerCase()}e ${SHAPE_LABELS_DE[a.shape]}`;
-      const nameB = `${COLOR_LABELS_DE[b.color].toLowerCase()}e ${SHAPE_LABELS_DE[b.shape]}`;
+      const nameA = `${COLOR_LABELS[a.color].toLowerCase()} ${SHAPE_LABELS[a.shape].toLowerCase()}`;
+      const nameB = `${COLOR_LABELS[b.color].toLowerCase()} ${SHAPE_LABELS[b.shape].toLowerCase()}`;
 
       candidates.push({
         question: {
           id: nextId(),
           type: 'relativePosition',
-          text: `War das ${nameA} ${direction} dem ${nameB}?`,
-          correctAnswer: 'Ja',
+          text: `Was the ${nameA} ${direction} the ${nameB}?`,
+          correctAnswer: 'Yes',
           answerFormat: 'yesNo',
-          options: ['Ja', 'Nein'],
+          options: ['Yes', 'No'],
         },
         interestingness: 7,
       });
@@ -345,7 +345,7 @@ function generateCombinationQuestions(scene: Scene): QuestionCandidate[] {
         question: {
           id: nextId(),
           type: 'combination',
-          text: `Wie viele ${SIZE_LABELS_DE[size].toLowerCase()}e ${COLOR_LABELS_DE[color].toLowerCase()}e Objekte gab es?`,
+          text: `How many ${SIZE_LABELS[size].toLowerCase()} ${COLOR_LABELS[color].toLowerCase()} objects were there?`,
           correctAnswer: String(count),
           answerFormat: 'numberInput',
           min: 0,

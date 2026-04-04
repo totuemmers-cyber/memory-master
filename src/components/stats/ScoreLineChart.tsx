@@ -13,7 +13,7 @@ export function ScoreLineChart() {
 
   return (
     <div className="mb-8">
-      <h2 className="text-pixel-sm text-white mb-4">Score-Verlauf</h2>
+      <h2 className="text-pixel-sm text-white mb-4">Score History</h2>
       <div className="bg-pixel-surface p-4 pixel-border-muted" style={{ fontFamily: 'system-ui, sans-serif' }}>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={data}>

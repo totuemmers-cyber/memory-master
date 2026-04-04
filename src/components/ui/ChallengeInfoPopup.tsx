@@ -13,67 +13,67 @@ interface ChallengeInfo {
 const CHALLENGE_INFO: Record<string, ChallengeInfo> = {
   'observation-chamber': {
     category: 'observation',
-    nameDE: 'Beobachtungskammer',
+    nameDE: 'Observation Chamber',
     icon: '👁',
-    what: 'Praege dir Objekte mit verschiedenen Formen, Farben und Groessen ein. Danach beantwortest du Fragen zu dem, was du gesehen hast.',
-    trains: 'Visuelle Wahrnehmung, Detailgedaechtnis, Aufmerksamkeit fuer Farben, Formen und Positionen.',
-    benefit: 'Staerkt die Faehigkeit, Umgebungen schnell zu erfassen und Details zu behalten — nuetzlich beim Lernen, Lesen und im Alltag.',
+    what: 'Memorize objects with different shapes, colors, and sizes. Then answer questions about what you saw.',
+    trains: 'Visual perception, detail memory, attention to colors, shapes, and positions.',
+    benefit: 'Strengthens your ability to quickly absorb surroundings and retain details — useful for studying, reading, and everyday life.',
   },
   'link-chain': {
     category: 'association',
-    nameDE: 'Kettenglieder',
+    nameDE: 'Link Chain',
     icon: '🔗',
-    what: 'Verknuepfe Woerter zu einer Assoziationskette und rufe sie in der richtigen Reihenfolge ab.',
-    trains: 'Assoziatives Denken, semantisches Gedaechtnis, Kreativitaet.',
-    benefit: 'Verbessert die Merkfaehigkeit fuer Listen, Namen und Vokabeln durch kreative Verknuepfungen.',
+    what: 'Link words into an association chain and recall them in the correct order.',
+    trains: 'Associative thinking, semantic memory, creativity.',
+    benefit: 'Improves your ability to remember lists, names, and vocabulary through creative associations.',
   },
   'number-shape': {
     category: 'numerical',
-    nameDE: 'Zahlenformen',
+    nameDE: 'Number Shape',
     icon: '🔢',
-    what: 'Merke dir Zahlenfolgen und gib sie aus dem Gedaechtnis wieder.',
-    trains: 'Numerisches Arbeitsgedaechtnis, Konzentration, Mustererkennung.',
-    benefit: 'Hilft im Alltag bei PINs, Telefonnummern und ueberall dort, wo Zahlen eine Rolle spielen.',
+    what: 'Memorize number sequences and recall them from memory.',
+    trains: 'Numerical working memory, concentration, pattern recognition.',
+    benefit: 'Helps in everyday life with PINs, phone numbers, and anywhere numbers matter.',
   },
   'palace-builder': {
     category: 'spatial',
-    nameDE: 'Palastbauer',
+    nameDE: 'Palace Builder',
     icon: '🏰',
-    what: 'Nutze die Loci-Methode — platziere Informationen an Orten in einem mentalen Gedaechtnispalast.',
-    trains: 'Raeumliches Gedaechtnis, mentale Navigation, Loci-Methode.',
-    benefit: 'Die Loci-Technik ist eine der aeltesten und effektivsten Merkmethoden — ideal fuer Praesentationen und Pruefungen.',
+    what: 'Use the method of loci — place information at locations in a mental memory palace.',
+    trains: 'Spatial memory, mental navigation, method of loci.',
+    benefit: 'The loci technique is one of the oldest and most effective memory methods — ideal for presentations and exams.',
   },
   'face-vault': {
     category: 'social',
-    nameDE: 'Gesichtertresor',
+    nameDE: 'Face Vault',
     icon: '👤',
-    what: 'Merke dir Gesichter zusammen mit Namen und Details.',
-    trains: 'Gesichtserkennung, Name-Gesicht-Assoziation, soziales Gedaechtnis.',
-    benefit: 'Erleichtert den Umgang mit neuen Menschen — sich Namen zu merken schafft Vertrauen und staerkt Beziehungen.',
+    what: 'Memorize faces along with names and details.',
+    trains: 'Face recognition, name-face association, social memory.',
+    benefit: 'Makes meeting new people easier — remembering names builds trust and strengthens relationships.',
   },
   'card-recall': {
     category: 'sequential',
-    nameDE: 'Kartengedaechtnis',
+    nameDE: 'Card Recall',
     icon: '🃏',
-    what: 'Merke dir die Reihenfolge aufgedeckter Karten und gib sie wieder.',
-    trains: 'Sequentielles Gedaechtnis, Reihenfolge-Encoding, Fokus.',
-    benefit: 'Trainiert das Arbeitsgedaechtnis fuer geordnete Informationen — wichtig beim Erlernen von Ablaeufen und Routinen.',
+    what: 'Memorize the order of revealed cards and recall them.',
+    trains: 'Sequential memory, order encoding, focus.',
+    benefit: 'Trains working memory for ordered information — important for learning procedures and routines.',
   },
   'story-recall': {
     category: 'narrative',
-    nameDE: 'Geschichtenfaenger',
+    nameDE: 'Story Recall',
     icon: '📖',
-    what: 'Lies eine kurze Geschichte und beantworte Fragen zu Inhalt und Details.',
-    trains: 'Textverstaendnis, narratives Gedaechtnis, Informationsextraktion.',
-    benefit: 'Staerkt die Faehigkeit, aus Texten und Gespraechen die wichtigsten Informationen zu behalten.',
+    what: 'Read a short story and answer questions about content and details.',
+    trains: 'Reading comprehension, narrative memory, information extraction.',
+    benefit: 'Strengthens your ability to retain key information from texts and conversations.',
   },
   'date-keeper': {
     category: 'numerical',
-    nameDE: 'Datumswaechter',
+    nameDE: 'Date Keeper',
     icon: '📅',
-    what: 'Merke dir Daten und die dazugehoerigen Ereignisse.',
-    trains: 'Zeitliches Gedaechtnis, Datum-Ereignis-Assoziation.',
-    benefit: 'Verbessert die Erinnerung an Termine, Geburtstage und historische Daten.',
+    what: 'Memorize dates and their associated events.',
+    trains: 'Temporal memory, date-event association.',
+    benefit: 'Improves your recall of appointments, birthdays, and historical dates.',
   },
 };
 
@@ -118,15 +118,15 @@ function ChallengeInfoModal({ info, onClose }: { info: ChallengeInfo; onClose: (
 
         <div className="space-y-4 challenge-zone text-sm leading-relaxed">
           <div>
-            <div className="font-pixel text-pixel-xs text-pixel-blue mb-1">Was?</div>
+            <div className="font-pixel text-pixel-xs text-pixel-blue mb-1">What?</div>
             <p className="text-gray-300">{info.what}</p>
           </div>
           <div>
-            <div className="font-pixel text-pixel-xs text-pixel-emerald mb-1">Trainiert</div>
+            <div className="font-pixel text-pixel-xs text-pixel-emerald mb-1">Trains</div>
             <p className="text-gray-300">{info.trains}</p>
           </div>
           <div>
-            <div className="font-pixel text-pixel-xs text-pixel-purple mb-1">Warum?</div>
+            <div className="font-pixel text-pixel-xs text-pixel-purple mb-1">Why?</div>
             <p className="text-gray-300">{info.benefit}</p>
           </div>
         </div>
@@ -136,7 +136,7 @@ function ChallengeInfoModal({ info, onClose }: { info: ChallengeInfo; onClose: (
             onClick={onClose}
             className="px-6 py-2 bg-pixel-surface text-white font-pixel text-pixel-xs pixel-border-muted hover:brightness-110"
           >
-            Verstanden
+            Got it
           </button>
         </div>
       </div>

@@ -32,7 +32,7 @@ export function ChallengeRunner() {
   if (!module) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="text-pixel-red font-pixel text-pixel-sm">Challenge nicht gefunden</div>
+        <div className="text-pixel-red font-pixel text-pixel-sm">Challenge not found</div>
       </div>
     );
   }

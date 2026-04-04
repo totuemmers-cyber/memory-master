@@ -17,7 +17,7 @@ export function BestPerformances() {
 
   return (
     <div className="mb-8">
-      <h2 className="text-pixel-sm text-white mb-4">Bestleistungen</h2>
+      <h2 className="text-pixel-sm text-white mb-4">Best Performances</h2>
       <div className="space-y-3">
         {[...byChallenge.entries()].map(([challengeId, stats]) => {
           const module = challengeRegistry.get(challengeId);

@@ -15,7 +15,7 @@ export function StreakCalendar() {
 
   return (
     <div className="mb-8">
-      <h2 className="text-pixel-sm text-white mb-4">Aktivitaet</h2>
+      <h2 className="text-pixel-sm text-white mb-4">Activity</h2>
       <div className="bg-pixel-surface p-4 pixel-border-muted">
         <div className="flex gap-1 justify-center">
           {weeks.map((week, wi) => (
@@ -23,7 +23,7 @@ export function StreakCalendar() {
               {week.map((day) => (
                 <div
                   key={day.date}
-                  title={`${day.date}: ${day.sessionsCount} Sessions${day.completed ? ' (Daily erledigt)' : ''}`}
+                  title={`${day.date}: ${day.sessionsCount} Sessions${day.completed ? ' (Daily complete)' : ''}`}
                   className={cn(
                     'w-3 h-3 rounded-sm transition-colors',
                     day.sessionsCount === 0
@@ -40,9 +40,9 @@ export function StreakCalendar() {
           ))}
         </div>
         <div className="flex items-center justify-center gap-2 mt-3 text-pixel-xs text-pixel-muted">
-          <div className="w-3 h-3 bg-pixel-surface-light rounded-sm" /> Keine
-          <div className="w-3 h-3 bg-pixel-gold/40 rounded-sm" /> Gespielt
-          <div className="w-3 h-3 bg-pixel-gold rounded-sm" /> Gut
+          <div className="w-3 h-3 bg-pixel-surface-light rounded-sm" /> None
+          <div className="w-3 h-3 bg-pixel-gold/40 rounded-sm" /> Played
+          <div className="w-3 h-3 bg-pixel-gold rounded-sm" /> Good
           <div className="w-3 h-3 bg-pixel-emerald rounded-sm" /> Daily
         </div>
       </div>

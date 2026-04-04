@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Question, Quadrant } from './types';
-import { QUADRANT_LABELS_DE } from './types';
+import { QUADRANT_LABELS } from './types';
 import { cn } from '../../utils/cn';
 
 interface QuestionPanelProps {
@@ -18,7 +18,7 @@ export function QuestionPanel({ question, questionNumber, totalQuestions, onAnsw
     <div className="challenge-zone max-w-lg mx-auto p-6">
       {/* Progress */}
       <div className="text-pixel-muted text-pixel-xs mb-6 text-center font-pixel">
-        Frage {questionNumber} / {totalQuestions}
+        Question {questionNumber} / {totalQuestions}
       </div>
 
       {/* Question text */}
@@ -56,7 +56,7 @@ export function QuestionPanel({ question, questionNumber, totalQuestions, onAnsw
 
       {question.answerFormat === 'yesNo' && (
         <div className="flex gap-4 justify-center">
-          {['Ja', 'Nein'].map((option) => (
+          {['Yes', 'No'].map((option) => (
             <button
               key={option}
               onClick={() => !feedback && onAnswer(option)}
@@ -114,7 +114,7 @@ export function QuestionPanel({ question, questionNumber, totalQuestions, onAnsw
               disabled={!numberValue}
               className="px-6 py-2 bg-pixel-gold text-pixel-dark font-pixel text-pixel-sm rounded-lg hover:bg-pixel-gold/90 disabled:opacity-50"
             >
-              Bestaetigen
+              Confirm
             </button>
           )}
         </div>
@@ -125,18 +125,18 @@ export function QuestionPanel({ question, questionNumber, totalQuestions, onAnsw
           {(['top-left', 'top-right', 'bottom-left', 'bottom-right'] as Quadrant[]).map((q) => (
             <button
               key={q}
-              onClick={() => !feedback && onAnswer(QUADRANT_LABELS_DE[q])}
+              onClick={() => !feedback && onAnswer(QUADRANT_LABELS[q])}
               disabled={!!feedback}
               className={cn(
                 'py-4 px-3 rounded-lg border-2 transition-all text-sm text-center',
                 feedback
-                  ? QUADRANT_LABELS_DE[q] === feedback.correctAnswer
+                  ? QUADRANT_LABELS[q] === feedback.correctAnswer
                     ? 'border-pixel-emerald bg-pixel-emerald/20 text-pixel-emerald'
                     : 'border-pixel-surface-light bg-pixel-surface text-pixel-muted'
                   : 'border-pixel-surface-light bg-pixel-surface text-white hover:border-pixel-gold cursor-pointer'
               )}
             >
-              {QUADRANT_LABELS_DE[q]}
+              {QUADRANT_LABELS[q]}
             </button>
           ))}
         </div>
@@ -148,7 +148,7 @@ export function QuestionPanel({ question, questionNumber, totalQuestions, onAnsw
           'mt-6 text-center font-pixel text-pixel-sm',
           feedback.isCorrect ? 'text-pixel-emerald' : 'text-pixel-red'
         )}>
-          {feedback.isCorrect ? 'Richtig!' : `Falsch! Richtig: ${feedback.correctAnswer}`}
+          {feedback.isCorrect ? 'Correct!' : `Wrong! Answer: ${feedback.correctAnswer}`}
         </div>
       )}
     </div>

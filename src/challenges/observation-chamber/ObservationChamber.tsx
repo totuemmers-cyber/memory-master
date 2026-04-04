@@ -146,15 +146,15 @@ export function ObservationChamber({ difficulty, onComplete, onQuit }: Challenge
   if (phase === 'idle') {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6 p-6">
-        <div className="text-pixel-gold font-pixel text-pixel-xl mb-2">Beobachtungskammer</div>
+        <div className="text-pixel-gold font-pixel text-pixel-xl mb-2">Observation Chamber</div>
         <div className="text-pixel-muted font-pixel text-pixel-xs mb-2">Level {difficulty}</div>
         <div className="challenge-zone text-center text-sm text-gray-400 max-w-md leading-relaxed mb-4">
-          Praege dir die Objekte ein. Danach wirst du Fragen dazu beantworten.
+          Memorize the objects. Then you'll answer questions about what you saw.
           <br /><br />
-          <span className="text-pixel-gold font-pixel text-pixel-xs">{config.objectCount} Objekte — {config.viewingTime}s — {config.questionCount} Fragen</span>
+          <span className="text-pixel-gold font-pixel text-pixel-xs">{config.objectCount} objects — {config.viewingTime}s — {config.questionCount} questions</span>
         </div>
         <div className="flex gap-3">
-          <PixelButton variant="secondary" onClick={onQuit}>Abbrechen</PixelButton>
+          <PixelButton variant="secondary" onClick={onQuit}>Cancel</PixelButton>
           <PixelButton variant="primary" size="lg" onClick={startRound}>Start</PixelButton>
         </div>
       </div>
@@ -173,7 +173,7 @@ export function ObservationChamber({ difficulty, onComplete, onQuit }: Challenge
         <TimerBar totalMs={viewDurationMs} remainingMs={viewTimer.remainingMs} />
         <SceneCanvas scene={scene} visible />
         <div className="text-center mt-4 font-pixel text-pixel-xs text-pixel-muted">
-          Praege dir alles ein!
+          Memorize everything!
         </div>
       </div>
     );

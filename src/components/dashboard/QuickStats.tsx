@@ -15,7 +15,7 @@ export function QuickStats() {
 
   return (
     <div className="mb-6">
-      <h2 className="text-pixel-sm text-white mb-3">Statistiken</h2>
+      <h2 className="text-pixel-sm text-white mb-3">Statistics</h2>
       <PixelCard onClick={() => navigate('/stats')}>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
@@ -24,7 +24,7 @@ export function QuickStats() {
           </div>
           <div>
             <div className="text-pixel-emerald text-pixel-lg">{bestScore}%</div>
-            <div className="text-pixel-muted text-pixel-xs mt-1">Bestleistung</div>
+            <div className="text-pixel-muted text-pixel-xs mt-1">Best Score</div>
           </div>
           <div>
             <div className="text-pixel-purple text-pixel-lg">Lv.{maxDiff}</div>

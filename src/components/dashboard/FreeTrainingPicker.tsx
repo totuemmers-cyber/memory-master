@@ -21,7 +21,7 @@ export function FreeTrainingPicker() {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <h1 className="text-pixel-gold text-pixel-xl text-center mb-6">Freies Training</h1>
+      <h1 className="text-pixel-gold text-pixel-xl text-center mb-6">Free Training</h1>
 
       <div className="space-y-3 mb-6">
         {allChallenges.map((ch) => (
@@ -51,7 +51,7 @@ export function FreeTrainingPicker() {
 
       {selectedChallenge && (
         <div className="mb-6">
-          <h2 className="text-pixel-sm text-white mb-3">Schwierigkeit</h2>
+          <h2 className="text-pixel-sm text-white mb-3">Difficulty</h2>
           <div className="flex flex-wrap gap-2 justify-center">
             {Array.from({ length: 10 }, (_, i) => i + 1).map((level) => {
               const currentLevel = categoryDiffs[challengeRegistry.get(selectedChallenge)?.category || 'observation'] || 1;

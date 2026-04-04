@@ -11,7 +11,7 @@ export function AchievementGallery() {
     <div className="p-6 max-w-2xl mx-auto">
       <h1 className="text-pixel-gold text-pixel-xl text-center mb-2">Achievements</h1>
       <div className="text-pixel-muted text-pixel-xs text-center mb-6">
-        {unlockedCount} / {ALL_ACHIEVEMENTS.length} freigeschaltet
+        {unlockedCount} / {ALL_ACHIEVEMENTS.length} unlocked
       </div>
       <div className="space-y-3">
         {ALL_ACHIEVEMENTS.map((ach) => {

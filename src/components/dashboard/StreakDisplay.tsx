@@ -13,7 +13,7 @@ export function StreakDisplay() {
       </div>
       <div className="bg-pixel-surface p-3 text-center pixel-border-muted">
         <div className="text-pixel-emerald text-pixel-lg">{longest}</div>
-        <div className="text-pixel-muted text-pixel-xs mt-1">Rekord</div>
+        <div className="text-pixel-muted text-pixel-xs mt-1">Record</div>
       </div>
       <div className="bg-pixel-surface p-3 text-center pixel-border-muted">
         <div className="text-pixel-blue text-pixel-lg">{total}</div>

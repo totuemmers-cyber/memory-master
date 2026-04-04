@@ -31,7 +31,7 @@ export function ResultsScreen({ score, answeredQuestions, difficulty, difficulty
           {getScoreLabel(score)}
         </div>
         <div className="text-white text-pixel-xs font-pixel">
-          {correct} / {total} richtig — Level {difficulty}
+          {correct} / {total} correct — Level {difficulty}
         </div>
         <PixelProgress value={score} className="mt-4" color={score >= 85 ? 'emerald' : score >= 50 ? 'gold' : 'red'} />
       </div>
@@ -42,7 +42,7 @@ export function ResultsScreen({ score, answeredQuestions, difficulty, difficulty
           'text-center font-pixel text-pixel-sm mb-6 py-2 px-4 rounded-lg',
           difficultyChange === 'up' ? 'bg-pixel-emerald/20 text-pixel-emerald' : 'bg-pixel-red/20 text-pixel-red'
         )}>
-          {difficultyChange === 'up' ? '⬆ Level Up!' : '⬇ Level angepasst'}
+          {difficultyChange === 'up' ? '⬆ Level Up!' : '⬇ Level adjusted'}
         </div>
       )}
 
@@ -59,9 +59,9 @@ export function ResultsScreen({ score, answeredQuestions, difficulty, difficulty
             <div className="flex-1 min-w-0">
               <div className="text-white text-sm mb-1">{aq.question.text}</div>
               <div className="text-pixel-muted text-xs">
-                Deine Antwort: <span className={aq.isCorrect ? 'text-pixel-emerald' : 'text-pixel-red'}>{aq.playerAnswer}</span>
+                Your answer: <span className={aq.isCorrect ? 'text-pixel-emerald' : 'text-pixel-red'}>{aq.playerAnswer}</span>
                 {!aq.isCorrect && (
-                  <span> — Richtig: <span className="text-pixel-emerald">{aq.question.correctAnswer}</span></span>
+                  <span> — Correct: <span className="text-pixel-emerald">{aq.question.correctAnswer}</span></span>
                 )}
               </div>
             </div>
@@ -72,10 +72,10 @@ export function ResultsScreen({ score, answeredQuestions, difficulty, difficulty
       {/* Actions */}
       <div className="flex gap-3 justify-center">
         <PixelButton variant="secondary" onClick={onBack}>
-          Zurueck
+          Back
         </PixelButton>
         <PixelButton variant="primary" onClick={onPlayAgain}>
-          Nochmal
+          Play Again
         </PixelButton>
       </div>
     </div>

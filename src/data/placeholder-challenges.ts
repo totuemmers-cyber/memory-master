@@ -1,9 +1,9 @@
 export const PLACEHOLDER_CHALLENGES = [
-  { id: 'link-chain', name: 'Link Chain', nameDE: 'Kettenglieder', icon: '🔗', category: 'association' as const, description: 'Verknuepfe Woerter zu einer Kette' },
-  { id: 'number-shape', name: 'Number Shape', nameDE: 'Zahlenformen', icon: '🔢', category: 'numerical' as const, description: 'Merke dir Zahlenfolgen' },
-  { id: 'palace-builder', name: 'Palace Builder', nameDE: 'Palastbauer', icon: '🏰', category: 'spatial' as const, description: 'Nutze die Loci-Methode' },
-  { id: 'face-vault', name: 'Face Vault', nameDE: 'Gesichtertresor', icon: '👤', category: 'social' as const, description: 'Merke dir Gesichter und Namen' },
-  { id: 'card-recall', name: 'Card Recall', nameDE: 'Kartengedaechtnis', icon: '🃏', category: 'sequential' as const, description: 'Merke dir Kartenreihenfolgen' },
-  { id: 'date-keeper', name: 'Date Keeper', nameDE: 'Datumswaechter', icon: '📅', category: 'numerical' as const, description: 'Merke dir Daten und Ereignisse' },
-  { id: 'story-recall', name: 'Story Recall', nameDE: 'Geschichtenfaenger', icon: '📖', category: 'narrative' as const, description: 'Trainiere dein Textverstaendnis' },
+  { id: 'link-chain', name: 'Link Chain', nameDE: 'Link Chain', icon: '🔗', category: 'association' as const, description: 'Link words into an association chain' },
+  { id: 'number-shape', name: 'Number Shape', nameDE: 'Number Shape', icon: '🔢', category: 'numerical' as const, description: 'Memorize number sequences' },
+  { id: 'palace-builder', name: 'Palace Builder', nameDE: 'Palace Builder', icon: '🏰', category: 'spatial' as const, description: 'Use the method of loci' },
+  { id: 'face-vault', name: 'Face Vault', nameDE: 'Face Vault', icon: '👤', category: 'social' as const, description: 'Memorize faces and names' },
+  { id: 'card-recall', name: 'Card Recall', nameDE: 'Card Recall', icon: '🃏', category: 'sequential' as const, description: 'Memorize card sequences' },
+  { id: 'date-keeper', name: 'Date Keeper', nameDE: 'Date Keeper', icon: '📅', category: 'numerical' as const, description: 'Memorize dates and events' },
+  { id: 'story-recall', name: 'Story Recall', nameDE: 'Story Recall', icon: '📖', category: 'narrative' as const, description: 'Train your reading comprehension' },
 ];

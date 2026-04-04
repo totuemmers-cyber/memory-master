@@ -7,7 +7,7 @@ export const ALL_TITLES: Title[] = [
     nameEN: 'Novice',
     rank: 0,
     requirement: { type: 'default' },
-    description: 'Am Anfang der Reise',
+    description: 'The journey begins',
   },
   {
     id: 'observer',
@@ -15,7 +15,7 @@ export const ALL_TITLES: Title[] = [
     nameEN: 'Observer',
     rank: 1,
     requirement: { type: 'any_category_difficulty', difficulty: 3 },
-    description: 'Level 3 in einer Kategorie',
+    description: 'Level 3 in any category',
   },
   {
     id: 'apprentice',
@@ -23,7 +23,7 @@ export const ALL_TITLES: Title[] = [
     nameEN: 'Apprentice',
     rank: 2,
     requirement: { type: 'any_category_difficulty', difficulty: 5 },
-    description: 'Level 5 in einer Kategorie',
+    description: 'Level 5 in any category',
   },
   {
     id: 'memory-adept',
@@ -31,7 +31,7 @@ export const ALL_TITLES: Title[] = [
     nameEN: 'Memory Adept',
     rank: 4,
     requirement: { type: 'avg_difficulty', minAvg: 5 },
-    description: 'Durchschnitt Level 5',
+    description: 'Average level 5',
   },
   {
     id: 'memory-athlete',
@@ -39,7 +39,7 @@ export const ALL_TITLES: Title[] = [
     nameEN: 'Memory Athlete',
     rank: 5,
     requirement: { type: 'avg_difficulty', minAvg: 7 },
-    description: 'Durchschnitt Level 7',
+    description: 'Average level 7',
   },
   {
     id: 'grand-master-of-memory',
@@ -47,6 +47,6 @@ export const ALL_TITLES: Title[] = [
     nameEN: 'Grand Master of Memory',
     rank: 6,
     requirement: { type: 'all_categories_min', minDifficulty: 8 },
-    description: 'Alle Kategorien Level 8+',
+    description: 'All categories level 8+',
   },
 ];

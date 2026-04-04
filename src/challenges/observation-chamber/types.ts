@@ -22,23 +22,23 @@ export const COLOR_HEX: Record<ObjectColor, string> = {
   cyan: '#00B5D8',
 };
 
-export const COLOR_LABELS_DE: Record<ObjectColor, string> = {
-  red: 'Rot', blue: 'Blau', green: 'Gruen', yellow: 'Gelb',
-  orange: 'Orange', purple: 'Lila', pink: 'Pink', cyan: 'Tuerkis',
+export const COLOR_LABELS: Record<ObjectColor, string> = {
+  red: 'Red', blue: 'Blue', green: 'Green', yellow: 'Yellow',
+  orange: 'Orange', purple: 'Purple', pink: 'Pink', cyan: 'Cyan',
 };
 
-export const SHAPE_LABELS_DE: Record<Shape, string> = {
-  circle: 'Kreis', square: 'Quadrat', triangle: 'Dreieck', star: 'Stern',
-  diamond: 'Raute', heart: 'Herz', hexagon: 'Sechseck', pentagon: 'Fuenfeck',
+export const SHAPE_LABELS: Record<Shape, string> = {
+  circle: 'Circle', square: 'Square', triangle: 'Triangle', star: 'Star',
+  diamond: 'Diamond', heart: 'Heart', hexagon: 'Hexagon', pentagon: 'Pentagon',
 };
 
-export const SIZE_LABELS_DE: Record<Size, string> = {
-  small: 'Klein', medium: 'Mittel', large: 'Gross',
+export const SIZE_LABELS: Record<Size, string> = {
+  small: 'Small', medium: 'Medium', large: 'Large',
 };
 
-export const QUADRANT_LABELS_DE: Record<Quadrant, string> = {
-  'top-left': 'Oben links', 'top-right': 'Oben rechts',
-  'bottom-left': 'Unten links', 'bottom-right': 'Unten rechts',
+export const QUADRANT_LABELS: Record<Quadrant, string> = {
+  'top-left': 'Top left', 'top-right': 'Top right',
+  'bottom-left': 'Bottom left', 'bottom-right': 'Bottom right',
 };
 
 export interface SceneObject {

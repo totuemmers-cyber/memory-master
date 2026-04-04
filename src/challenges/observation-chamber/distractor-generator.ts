@@ -1,5 +1,5 @@
 import type { ObjectColor } from './types';
-import { ALL_COLORS, COLOR_LABELS_DE } from './types';
+import { ALL_COLORS, COLOR_LABELS } from './types';
 import { shuffle } from '../../utils/random';
 
 export function generateNumericDistractors(
@@ -37,11 +37,11 @@ export function generateColorDistractors(
   // Prefer colors present in scene (more plausible)
   const sceneDistractors = sceneColors
     .filter(c => c !== correctColor)
-    .map(c => COLOR_LABELS_DE[c]);
+    .map(c => COLOR_LABELS[c]);
 
   const allDistractors = ALL_COLORS
     .filter(c => c !== correctColor)
-    .map(c => COLOR_LABELS_DE[c]);
+    .map(c => COLOR_LABELS[c]);
 
   const pool = [...new Set([...sceneDistractors, ...allDistractors])];
   return shuffle(pool).slice(0, count);

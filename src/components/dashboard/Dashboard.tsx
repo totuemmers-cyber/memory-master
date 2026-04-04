@@ -16,7 +16,7 @@ export function Dashboard() {
       <QuickStats />
       <div className="text-center">
         <PixelButton variant="secondary" onClick={() => navigate('/free-training')}>
-          Freies Training
+          Free Training
         </PixelButton>
       </div>
     </div>

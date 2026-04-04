@@ -10,10 +10,10 @@ export function getScoreColor(score: number): string {
 }
 
 export function getScoreLabel(score: number): string {
-  if (score >= 95) return 'Perfekt!';
-  if (score >= 85) return 'Ausgezeichnet!';
-  if (score >= 70) return 'Gut gemacht!';
-  if (score >= 50) return 'Nicht schlecht';
-  if (score >= 30) return 'Weiter ueben!';
-  return 'Versuch es nochmal!';
+  if (score >= 95) return 'Perfect!';
+  if (score >= 85) return 'Excellent!';
+  if (score >= 70) return 'Well done!';
+  if (score >= 50) return 'Not bad';
+  if (score >= 30) return 'Keep practicing!';
+  return 'Try again!';
 }

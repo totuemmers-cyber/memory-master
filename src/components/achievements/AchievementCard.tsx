@@ -23,11 +23,11 @@ export function AchievementCard({ achievement, unlocked, unlockedAt }: Achieveme
           {unlocked || !achievement.secret ? achievement.name : '???'}
         </div>
         <div className="text-pixel-xs text-pixel-muted mt-1">
-          {unlocked || !achievement.secret ? achievement.description : 'Geheim'}
+          {unlocked || !achievement.secret ? achievement.description : 'Secret'}
         </div>
         {unlocked && unlockedAt && (
           <div className="text-pixel-xs text-pixel-muted mt-1">
-            {new Date(unlockedAt).toLocaleDateString('de-DE')}
+            {new Date(unlockedAt).toLocaleDateString('en-US')}
           </div>
         )}
       </div>

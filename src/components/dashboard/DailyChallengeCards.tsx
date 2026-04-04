@@ -7,7 +7,7 @@ import { PixelCard } from '../ui/PixelCard';
 import { PixelProgress } from '../ui/PixelProgress';
 import { ChallengeInfoButton } from '../ui/ChallengeInfoPopup';
 
-const SLOT_LABELS = ['Schwaeche', 'Balance', 'Herausforderung'];
+const SLOT_LABELS = ['Weakness', 'Balance', 'Challenge'];
 const SLOT_COLORS = ['text-pixel-red', 'text-pixel-blue', 'text-pixel-gold'];
 
 export function DailyChallengeCards() {
@@ -31,7 +31,7 @@ export function DailyChallengeCards() {
   return (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-pixel-sm text-white">Taegliche Challenges</h2>
+        <h2 className="text-pixel-sm text-white">Daily Challenges</h2>
         <span className="text-pixel-xs text-pixel-muted">{completedCount}/3</span>
       </div>
       <PixelProgress value={(completedCount / 3) * 100} color="gold" className="mb-4" />
