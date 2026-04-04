@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pixel-dark: #0f172a;
+  --color-pixel-darker: #0a0f1e;
+  --color-pixel-gold: #f59e0b;
+  --color-pixel-gold-dim: #b47508;
+  --color-pixel-emerald: #10b981;
+  --color-pixel-red: #ef4444;
+  --color-pixel-blue: #3b82f6;
+  --color-pixel-purple: #8b5cf6;
+  --color-pixel-muted: #64748b;
+  --color-pixel-surface: #1e293b;
+  --color-pixel-surface-light: #334155;
+
+  --font-family-pixel: 'Press Start 2P', monospace;
+  --font-family-clean: system-ui, -apple-system, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: var(--font-family-pixel);
+}
+
+.pixel-border {
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0,0,0,0.3),
+    inset 3px 3px 0px 0px rgba(255,255,255,0.08),
+    0 0 0 2px var(--color-pixel-gold);
+}
+
+.pixel-border-muted {
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0,0,0,0.3),
+    inset 3px 3px 0px 0px rgba(255,255,255,0.08),
+    0 0 0 2px var(--color-pixel-surface-light);
+}
+
+.challenge-zone {
+  font-family: var(--font-family-clean);
+  image-rendering: auto;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-pixel-darker); }
+::-webkit-scrollbar-thumb { background: var(--color-pixel-surface-light); }
+
+.text-pixel-xs { font-size: 8px; line-height: 1.5; }
+.text-pixel-sm { font-size: 10px; line-height: 1.5; }
+.text-pixel-base { font-size: 12px; line-height: 1.6; }
+.text-pixel-lg { font-size: 14px; line-height: 1.5; }
+.text-pixel-xl { font-size: 18px; line-height: 1.4; }
+.text-pixel-2xl { font-size: 24px; line-height: 1.3; }
