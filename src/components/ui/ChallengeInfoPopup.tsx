@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { ChallengeCategory } from '../../types';
 
 interface ChallengeInfo {
@@ -95,7 +96,10 @@ export function ChallengeInfoButton({ challengeId }: { challengeId: string }) {
       >
         ?
       </button>
-      {open && <ChallengeInfoModal info={info} onClose={() => setOpen(false)} />}
+      {open && createPortal(
+        <ChallengeInfoModal info={info} onClose={() => setOpen(false)} />,
+        document.body
+      )}
     </>
   );
 }
