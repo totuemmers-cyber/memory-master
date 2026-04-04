@@ -1,9 +1,11 @@
+import { useMemo } from 'react';
 import { useGameStore } from '../../state/game-store';
 import { selectStreakDays } from '../../state/selectors';
 import { cn } from '../../utils/cn';
 
 export function StreakCalendar() {
-  const streakDays = useGameStore(s => selectStreakDays(s, 84)); // 12 weeks
+  const state = useGameStore(s => s.history);
+  const streakDays = useMemo(() => selectStreakDays(useGameStore.getState(), 84), [state]);
 
   // Group by weeks
   const weeks: typeof streakDays[] = [];
