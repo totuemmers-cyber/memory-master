@@ -1,7 +1,22 @@
 import type { DailyState, DailyChallenge } from '../types';
 import type { ChallengeCategory } from '../types';
 import { challengeRegistry } from './challenge-registry';
-import { getTodayString } from '../utils/date';
+import { getTodayString, hashDateString } from '../utils/date';
+
+/**
+ * Seeded shuffle: deterministic for the same date, different across days.
+ * Uses a simple linear congruential step seeded from the date hash.
+ */
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const result = [...arr];
+  let s = seed;
+  for (let i = result.length - 1; i > 0; i--) {
+    s = (s * 1664525 + 1013904223) >>> 0;
+    const j = s % (i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
 
 export function pickDailyChallenges(
   categoryDifficulties: Partial<Record<ChallengeCategory, number>>,
@@ -19,6 +34,7 @@ export function pickDailyChallenges(
   }
 
   const challenges: DailyChallenge[] = [];
+  const dateSeed = hashDateString(today);
 
   if (available.length === 1) {
     const challenge = available[0];
@@ -43,10 +59,14 @@ export function pickDailyChallenges(
       category: challenge.category,
     });
   } else {
-    const ranked = available
+    // Shuffle available challenges with date seed for daily variety,
+    // then rank by difficulty so slot roles (weakness/balance/challenge) still apply
+    const shuffled = seededShuffle(available, dateSeed);
+    const ranked = shuffled
       .map(c => ({ challenge: c, diff: categoryDifficulties[c.category] || 1 }))
       .sort((a, b) => a.diff - b.diff);
 
+    // Pick 3 distinct challenges: weakest, middle, strongest
     const weakest = ranked[0];
     const strongest = ranked[ranked.length - 1];
     const middle = ranked[Math.floor(ranked.length / 2)];

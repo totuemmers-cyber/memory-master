@@ -88,8 +88,9 @@ export const useGameStore = create<GameStore>()(
           return c;
         });
 
+        const MAX_HISTORY = 500;
         set((state) => ({
-          history: [...state.history, record],
+          history: [...state.history, record].slice(-MAX_HISTORY),
           profile: {
             ...state.profile,
             totalSessions: state.profile.totalSessions + 1,
@@ -210,6 +211,20 @@ export const useGameStore = create<GameStore>()(
       name: STORAGE_KEY,
       storage: createJSONStorage(() => localStorage),
       version: 1,
+      migrate: (persisted: unknown, version: number) => {
+        const state = persisted as GameState & GameActions;
+        if (version === 0 || !version) {
+          // Migration from unversioned to v1: ensure all fields exist
+          return {
+            ...initialState,
+            ...state,
+            profile: { ...defaultProfile, ...state?.profile },
+            settings: { ...defaultSettings, ...state?.settings },
+            dailyState: { ...defaultDailyState, ...state?.dailyState },
+          };
+        }
+        return state;
+      },
     }
   )
 );
