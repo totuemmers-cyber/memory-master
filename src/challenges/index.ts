@@ -5,5 +5,5 @@ import './card-recall';
 import './palace-builder';
 import './story-recall';
 import './date-keeper';
+import './face-vault';
 import './_placeholder';
-// Face Vault still a placeholder — requires procedural SVG face generation
