@@ -69,8 +69,8 @@ export function PlayingCard({
         {symbol}
       </div>
 
-      {/* Rank in bottom-right corner (inverted) */}
-      <div className={cn('self-end leading-none font-pixel font-bold rotate-180', suitColor)}>
+      {/* Rank in bottom-right corner */}
+      <div className={cn('self-end leading-none font-pixel font-bold', suitColor)}>
         {card.rank}
       </div>
     </button>
