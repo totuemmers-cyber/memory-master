@@ -1,6 +1,4 @@
 export const PLACEHOLDER_CHALLENGES = [
-  { id: 'link-chain', name: 'Link Chain', nameDE: 'Link Chain', icon: '🔗', category: 'association' as const, description: 'Link words into an association chain' },
-  { id: 'number-shape', name: 'Number Shape', nameDE: 'Number Shape', icon: '🔢', category: 'numerical' as const, description: 'Memorize number sequences' },
   { id: 'palace-builder', name: 'Palace Builder', nameDE: 'Palace Builder', icon: '🏰', category: 'spatial' as const, description: 'Use the method of loci' },
   { id: 'face-vault', name: 'Face Vault', nameDE: 'Face Vault', icon: '👤', category: 'social' as const, description: 'Memorize faces and names' },
   { id: 'card-recall', name: 'Card Recall', nameDE: 'Card Recall', icon: '🃏', category: 'sequential' as const, description: 'Memorize card sequences' },
