@@ -6,7 +6,20 @@ export function QuickStats() {
   const navigate = useNavigate();
   const history = useGameStore(s => s.history);
 
-  if (history.length === 0) return null;
+  if (history.length === 0) {
+    return (
+      <div className="mb-6">
+        <PixelCard>
+          <div className="text-center py-2">
+            <div className="text-pixel-gold text-pixel-sm mb-2">Welcome to Memory Master!</div>
+            <div className="text-pixel-muted text-pixel-xs leading-relaxed">
+              Start with today's daily challenges above, or try Free Training below to pick any challenge at your own pace.
+            </div>
+          </div>
+        </PixelCard>
+      </div>
+    );
+  }
 
   const recent = history.slice(-10);
   const avgScore = Math.round(recent.reduce((sum, r) => sum + r.result.score, 0) / recent.length);

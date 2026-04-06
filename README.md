@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# Memory Master
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A retro pixel-art memory training game with 8 challenge types, adaptive difficulty, daily challenges, and persistent progress tracking.
 
-Currently, two official plugins are available:
+## Challenges
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Challenge | Category | Description |
+|-----------|----------|-------------|
+| Observation Chamber | Observation | Memorize a scene of objects, answer questions about details |
+| Link Chain | Association | Remember and reconstruct a word chain in order |
+| Number Shape | Numerical | Memorize and recall digit sequences |
+| Palace Builder | Spatial | Place items in rooms using the Method of Loci |
+| Face Vault | Social | Match procedurally generated pixel faces to names |
+| Card Recall | Sequential | Memorize and reconstruct a playing card sequence |
+| Story Recall | Narrative | Read a story, answer detail questions |
+| Date Keeper | Sequential | Memorize historical event dates |
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Daily Challenges** -- 3 per day (weakness / balance / challenge slots) with streak tracking
+- **Adaptive Difficulty** -- 10 levels per category, auto-adjusts based on recent performance
+- **19 Achievements** across bronze, silver, gold, and diamond tiers
+- **8 Titles** from Novice to Living Legend
+- **Statistics** -- score history chart, streak calendar, category levels, best performances
+- **8-bit Sound** -- synthesized via Web Audio API, adjustable volume
+- **Persistent Save** -- localStorage with JSON export/import backup
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19 + TypeScript
+- Zustand (state management + localStorage persistence)
+- Vite (build tool)
+- Tailwind CSS 4 (pixel-art theme)
+- Framer Motion (animations)
+- Recharts (statistics charts)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Build for production:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run build
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
+```
+src/
+  challenges/     8 challenge modules, each self-contained
+  components/     React components (dashboard, stats, settings, UI library)
+  engine/         Core logic (difficulty, achievements, scoring, daily picker)
+  state/          Zustand store + persistence utilities
+  data/           Static data (achievements, titles, word banks, events)
+  types/          TypeScript definitions
+  hooks/          useTimer, useSound
+  sound/          Web Audio synthesizer
 ```

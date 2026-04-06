@@ -26,6 +26,14 @@ export const ALL_TITLES: Title[] = [
     description: 'Level 5 in any category',
   },
   {
+    id: 'practitioner',
+    name: 'Practitioner',
+    nameEN: 'Practitioner',
+    rank: 3,
+    requirement: { type: 'any_category_difficulty', difficulty: 7 },
+    description: 'Level 7 in any category',
+  },
+  {
     id: 'memory-adept',
     name: 'Memory Adept',
     nameEN: 'Memory Adept',
@@ -48,5 +56,13 @@ export const ALL_TITLES: Title[] = [
     rank: 6,
     requirement: { type: 'all_categories_min', minDifficulty: 8 },
     description: 'All categories level 8+',
+  },
+  {
+    id: 'living-legend',
+    name: 'Living Legend',
+    nameEN: 'Living Legend',
+    rank: 7,
+    requirement: { type: 'all_categories_min', minDifficulty: 10 },
+    description: 'All categories level 10',
   },
 ];

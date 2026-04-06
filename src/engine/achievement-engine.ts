@@ -1,6 +1,7 @@
 import type { GameState, SessionRecord } from '../types';
 import type { ChallengeResult, Achievement } from '../types';
 import { ALL_ACHIEVEMENTS } from '../data/achievements';
+import { challengeRegistry } from './challenge-registry';
 
 export type AchievementEvent =
   | { type: 'challenge_completed'; result: ChallengeResult; record: SessionRecord }
@@ -57,6 +58,15 @@ function evaluateCondition(
 
     case 'total_sessions':
       return state.history.length >= cond.count;
+
+    case 'all_challenges_played': {
+      const availableIds = new Set(challengeRegistry.getAvailable().map(c => c.id));
+      const playedIds = new Set(state.history.map(r => r.challengeId));
+      for (const id of availableIds) {
+        if (!playedIds.has(id)) return false;
+      }
+      return availableIds.size > 0;
+    }
 
     default:
       return false;

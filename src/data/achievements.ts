@@ -101,4 +101,104 @@ export const ALL_ACHIEVEMENTS: Achievement[] = [
     tier: 'diamond',
     condition: { type: 'difficulty_reached', difficulty: 10 },
   },
+
+  // --- Milestone achievements ---
+  {
+    id: 'centurion',
+    name: 'Centurion',
+    nameEN: 'Centurion',
+    description: 'Complete 100 challenges',
+    descriptionEN: 'Complete 100 challenges',
+    icon: 'shield',
+    tier: 'gold',
+    condition: { type: 'total_sessions', count: 100 },
+  },
+  {
+    id: 'dedication',
+    name: 'Dedication',
+    nameEN: 'Dedication',
+    description: 'Complete 250 challenges',
+    descriptionEN: 'Complete 250 challenges',
+    icon: 'gem',
+    tier: 'gold',
+    condition: { type: 'total_sessions', count: 250 },
+  },
+  {
+    id: 'legend',
+    name: 'Legend',
+    nameEN: 'Legend',
+    description: 'Complete 500 challenges',
+    descriptionEN: 'Complete 500 challenges',
+    icon: 'trophy',
+    tier: 'diamond',
+    condition: { type: 'total_sessions', count: 500 },
+  },
+
+  // --- Streak achievements ---
+  {
+    id: 'zwei-wochen',
+    name: 'Two Weeks Strong',
+    nameEN: 'Two Weeks Strong',
+    description: '14-day streak',
+    descriptionEN: '14-day streak',
+    icon: 'flame',
+    tier: 'silver',
+    condition: { type: 'day_streak', days: 14 },
+  },
+  {
+    id: 'marathon',
+    name: 'Marathon',
+    nameEN: 'Marathon',
+    description: '60-day streak',
+    descriptionEN: '60-day streak',
+    icon: 'infinity',
+    tier: 'diamond',
+    condition: { type: 'day_streak', days: 60 },
+  },
+
+  // --- Difficulty achievements ---
+  {
+    id: 'fortgeschritten',
+    name: 'Advanced',
+    nameEN: 'Advanced',
+    description: 'Reach difficulty 7',
+    descriptionEN: 'Reach difficulty 7',
+    icon: 'lightning',
+    tier: 'gold',
+    condition: { type: 'difficulty_reached', difficulty: 7 },
+  },
+
+  // --- Score achievements ---
+  {
+    id: 'perfectionist',
+    name: 'Perfectionist',
+    nameEN: 'Perfectionist',
+    description: '100% on difficulty 8+',
+    descriptionEN: '100% on difficulty 8+',
+    icon: 'diamond',
+    tier: 'diamond',
+    condition: { type: 'score_threshold', minScore: 100, minDifficulty: 8 },
+  },
+  {
+    id: 'konsistenz',
+    name: 'Consistency',
+    nameEN: 'Consistency',
+    description: 'Score over 90% fifty times',
+    descriptionEN: 'Score over 90% fifty times',
+    icon: 'bullseye',
+    tier: 'diamond',
+    condition: { type: 'total_above_score', minScore: 90, count: 50 },
+  },
+
+  // --- Variety achievement ---
+  {
+    id: 'allrounder',
+    name: 'Well-Rounded',
+    nameEN: 'Well-Rounded',
+    description: 'Play every challenge type',
+    descriptionEN: 'Play every challenge type',
+    icon: 'compass',
+    tier: 'silver',
+    condition: { type: 'all_challenges_played' },
+  },
 ];

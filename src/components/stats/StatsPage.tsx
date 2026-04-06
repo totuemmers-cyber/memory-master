@@ -2,6 +2,7 @@ import { useGameStore } from '../../state/game-store';
 import { ScoreLineChart } from './ScoreLineChart';
 import { StreakCalendar } from './StreakCalendar';
 import { BestPerformances } from './BestPerformances';
+import { CategoryLevels } from './CategoryLevels';
 
 export function StatsPage() {
   const history = useGameStore(s => s.history);
@@ -20,6 +21,7 @@ export function StatsPage() {
   return (
     <div className="p-6 max-w-2xl mx-auto">
       <h1 className="text-pixel-gold text-pixel-xl text-center mb-6">Statistics</h1>
+      <CategoryLevels />
       <ScoreLineChart />
       <StreakCalendar />
       <BestPerformances />

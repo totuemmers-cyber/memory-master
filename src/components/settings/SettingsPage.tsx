@@ -6,7 +6,9 @@ import { PixelCard } from '../ui/PixelCard';
 
 export function SettingsPage() {
   const soundEnabled = useGameStore(s => s.settings.soundEnabled);
+  const soundVolume = useGameStore(s => s.settings.soundVolume);
   const setSoundEnabled = useGameStore(s => s.setSoundEnabled);
+  const setSoundVolume = useGameStore(s => s.setSoundVolume);
   const resetState = useGameStore(s => s.resetState);
   const importState = useGameStore(s => s.importState);
   const getState = useGameStore(s => s.getState);
@@ -65,6 +67,23 @@ export function SettingsPage() {
               }`} />
             </button>
           </div>
+          {soundEnabled && (
+            <div className="mt-4 flex items-center gap-3">
+              <span className="text-pixel-muted text-pixel-xs">Vol</span>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.05}
+                value={soundVolume}
+                onChange={(e) => setSoundVolume(Number(e.target.value))}
+                className="flex-1 accent-pixel-gold h-2"
+              />
+              <span className="text-pixel-muted text-pixel-xs w-8 text-right">
+                {Math.round(soundVolume * 100)}%
+              </span>
+            </div>
+          )}
         </PixelCard>
 
         {/* Export */}
